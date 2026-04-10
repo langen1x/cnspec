@@ -20548,8 +20548,8 @@ queries:
             ```bash
             gcloud model-armor templates update TEMPLATE_ID \
               --location=LOCATION \
-              --pi-and-jailbreak-filter-enforcement=enabled \
-              --pi-and-jailbreak-filter-confidence-level=low-and-above
+              --pi-and-jailbreak-filter-settings-enforcement=enabled \
+              --pi-and-jailbreak-filter-settings-confidence-level=low-and-above
             ```
     refs:
       - url: https://cloud.google.com/security/products/model-armor
@@ -20597,7 +20597,7 @@ queries:
             ```bash
             gcloud model-armor templates update TEMPLATE_ID \
               --location=LOCATION \
-              --malicious-uri-filter-enforcement=enabled
+              --malicious-uri-filter-settings-enforcement=enabled
             ```
     refs:
       - url: https://cloud.google.com/security/products/model-armor
@@ -20647,7 +20647,7 @@ queries:
             ```bash
             gcloud model-armor templates update TEMPLATE_ID \
               --location=LOCATION \
-              --rai-settings-from-file=rai_config.yaml
+              --rai-settings-filters='[{"filterType": "SEXUALLY_EXPLICIT", "confidenceLevel": "MEDIUM_AND_ABOVE"}, {"filterType": "HATE_SPEECH", "confidenceLevel": "MEDIUM_AND_ABOVE"}, {"filterType": "HARASSMENT", "confidenceLevel": "MEDIUM_AND_ABOVE"}, {"filterType": "DANGEROUS", "confidenceLevel": "MEDIUM_AND_ABOVE"}]'
             ```
     refs:
       - url: https://cloud.google.com/security/products/model-armor
@@ -20696,7 +20696,7 @@ queries:
             ```bash
             gcloud model-armor templates update TEMPLATE_ID \
               --location=LOCATION \
-              --sdp-basic-config-enforcement=enabled
+              --basic-config-filter-enforcement=enabled
             ```
     refs:
       - url: https://cloud.google.com/security/products/model-armor
@@ -20737,15 +20737,6 @@ queries:
             2. Select the template to edit.
             3. Under **Template Metadata**, set **Enforcement Type** to **Inspect and Block**.
             4. Save the template.
-        - id: cli
-          desc: |
-            To set the enforcement type to blocking mode using the Google Cloud CLI:
-
-            ```bash
-            gcloud model-armor templates update TEMPLATE_ID \
-              --location=LOCATION \
-              --template-metadata-enforcement-type=inspect-and-block
-            ```
     refs:
       - url: https://cloud.google.com/security/products/model-armor
         title: Google Cloud Model Armor overview
@@ -20841,10 +20832,10 @@ queries:
             ```bash
             gcloud model-armor templates update TEMPLATE_ID \
               --location=LOCATION \
-              --rai-settings-from-file=rai_config.yaml
+              --rai-settings-filters='[{"filterType": "SEXUALLY_EXPLICIT", "confidenceLevel": "MEDIUM_AND_ABOVE"}, {"filterType": "HATE_SPEECH", "confidenceLevel": "MEDIUM_AND_ABOVE"}, {"filterType": "HARASSMENT", "confidenceLevel": "MEDIUM_AND_ABOVE"}, {"filterType": "DANGEROUS", "confidenceLevel": "MEDIUM_AND_ABOVE"}]'
             ```
 
-            In the `rai_config.yaml` file, set `confidenceLevel` to `MEDIUM_AND_ABOVE` or `LOW_AND_ABOVE` for each RAI filter.
+            Set `confidenceLevel` to `MEDIUM_AND_ABOVE` or `LOW_AND_ABOVE` for each RAI filter type.
     refs:
       - url: https://cloud.google.com/security/products/model-armor
         title: Google Cloud Model Armor overview
